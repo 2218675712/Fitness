@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑";
+}
+
+.contentbox {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    text-align: center;
+}
+
+.boxbg3 {
+    background: url(../img/bg.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.phone {
+    width: 12.5rem;
+    height: 1.875rem;
+    margin-top: 82%;
+}
+
+
+/*信息完善*/
+.inflogo {
+    /*position: absolute;*/
+    display: block;
+    /*width: 9.5rem;*/
+    width: 2.437rem;
+    height: 2.437rem;
+    margin-top: 2.625rem;
+    margin-left: 10rem;
+}
+
+.infbg > div {
+    width: 18.125rem;
+    height: 2.75rem;
+    line-height: 1.875rem;
+    border-radius: 0.625rem;
+    background: #fff;
+    border: none;
+    font-size: 28px;
+    color: #333;
+    text-align: left;
+    margin: 1.875rem auto;
+}
+
+.btn {
+    width: 18.125rem;
+    height: 2.75rem;
+    background: #faec0c;
+    border-radius: 0.312rem;
+    border: none;
+    font-size: 16px;
+    color: #1d2025;
+    text-align: center;
+    line-height: 2.75rem;
+}
+
+.btn_top {
+    margin-top: 2.812rem;
+}
+
+.rule_top {
+    margin-top: 1.812rem;
+}
+
+input {
+    margin: 0;
+    padding: 0;
+}
+
+.infbg {
+    background: url(../img/bg2.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.infbg input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: none;
+}
+
+input::-webkit-input-placeholder {
+    color: #999;
+    font-size: 14px;
+    text-align: left;
+    text-indent: 0.937rem;
+}
+
+select {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: url("../img/down.png") no-repeat scroll 264px center transparent;
+    background-size: 10px 5px;
+    padding-right: 14px;
+    padding-top: 10px;
+    border: none;
+    color: #999;
+    text-indent: 0.937rem;
+    width: 100%;
+    font-size: 14px;
+}
+
+/*首页*/
+.title {
+    width: 19.312rem;
+    height: 9rem;
+    margin-top: 0.5rem;
+}
+
+.boxbg3 p {
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    margin-top: 0.625rem;
+}
+
+.boxbg3 .ptop {
+    margin-top: 0px;
+}
+
+.rule {
+    width: 19.312rem;
+    height: 10.25rem;
+    margin-top: 1.687rem;
+}
+
+
+/*预约成功*/
+.success > p:nth-child(1), .success > p:nth-child(2), .success > p:nth-child(3), .success > p:nth-child(5), .success > p:nth-child(7), p:nth-child(9) {
+    color: #FAEC0C;
+    margin-top: 2.125rem;
+}
+
+.success > p:nth-child(2) {
+    font-size: 25px;
+    margin-top: 2.5rem;
+    font-weight: 600;
+}
+
+.success > p:nth-child(3) {
+    margin-top: 2.437rem;
+}
+
+.success > p:nth-child(3), .success > p:nth-child(5), .success > p:nth-child(7) {
+    font-size: 12px;
+}
+
+.success > p:nth-child(4), .success > p:nth-child(6), .success > p:nth-child(8), .success > p:nth-child(10) {
+    font-size: 14px;
+    color: #fff;
+    margin-top: 0.875rem;
+}
+
+.success_top {
+    margin-top: 3.437rem;
+}
