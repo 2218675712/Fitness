@@ -47,10 +47,13 @@
                 </asp:DropDownList>
             </div>
             <div>
-                <input type="text" placeholder="姓名"/>
+                <%-- <input type="text" placeholder="姓名"/> --%>
+                <asp:TextBox ID="TextBox1" runat="server" placeholder="姓名"></asp:TextBox>
             </div>
             <div>
-                <input type="text" placeholder="手机号码"/>
+                <%-- <input type="text" placeholder="手机号码"/> --%>
+                <asp:TextBox ID="TextBox2" runat="server" placeholder="手机号码"></asp:TextBox>
+
             </div>
             <div>
                 <%--<select>
@@ -63,7 +66,8 @@
 
                 </asp:DropDownList>
             </div>
-            <button class="btn btn_top">确认预约</button>
+            <%-- <button id="Button1" class="btn btn_top" >确认预约</button> --%>
+            <asp:Button ID="Button1" CssClass="btn btn_top confirmBtn" runat="server" OnClick="Button1_OnClick" Text="确认预约"/>
         </div>
     </div>
 </form>

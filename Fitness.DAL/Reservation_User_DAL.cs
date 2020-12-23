@@ -59,12 +59,14 @@ namespace Fitness.DAL
             };
             parameters[0].Value = Guid.NewGuid();
             parameters[1].Value = model.City;
-            parameters[2].Value = Guid.NewGuid();
+            // parameters[2].Value = Guid.NewGuid();
+            parameters[2].Value = model.Fitness_Club_ID;
             parameters[3].Value = model.Name;
             parameters[4].Value = model.Sex;
             parameters[5].Value = model.Phone;
             parameters[6].Value = model.Create_Time;
-            parameters[7].Value = Guid.NewGuid();
+            // parameters[7].Value = Guid.NewGuid();
+            parameters[7].Value = model.Activity_ID;
 
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)

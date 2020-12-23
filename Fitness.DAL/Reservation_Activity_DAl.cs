@@ -60,7 +60,8 @@ namespace Fitness.DAL
             parameters[2].Value = model.Start_Time;
             parameters[3].Value = model.End_Time;
             parameters[4].Value = model.Reservation_Number;
-            parameters[5].Value = Guid.NewGuid();
+            // parameters[5].Value = Guid.NewGuid();
+            parameters[5].Value = model.Club_ID;
 
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)

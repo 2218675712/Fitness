@@ -161,3 +161,18 @@ select {
 .success_top {
     margin-top: 3.437rem;
 }
+
+
+
+/*预约页面确认按钮权重加强*/
+ .confirmBtn {
+    width: 18.125rem!important;
+    height: 2.75rem !important;
+    background: #faec0c!important;
+    border-radius: 0.312rem;
+    border: none!important;
+    font-size: 16px;
+    color: #1d2025;
+    text-align: center;
+    line-height: 2.75rem;
+}
