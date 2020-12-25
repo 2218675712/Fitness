@@ -110,6 +110,8 @@ namespace Fitness.Web
                 return;
             }
             Response.Write("预约成功,跳转到成功页面");
+            //  Activity_ID     参数:活动id
+            Response.Redirect("success.aspx?Activity_ID="+reservationUserModel.Activity_ID);
         }
 
         /// <summary>

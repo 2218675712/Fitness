@@ -22,9 +22,9 @@ namespace Fitness.BLL
         /// <summary>
         /// 是否存在该记录
         /// </summary>
-        public bool Exists(Guid ID, string City)
+        public bool Exists(Guid ID)
         {
-            return dal.Exists(ID, City);
+            return dal.Exists(ID);
         }
 
         /// <summary>
@@ -46,17 +46,25 @@ namespace Fitness.BLL
         /// <summary>
         /// 删除一条数据
         /// </summary>
-        public bool Delete(Guid ID, string City)
+        public bool Delete(Guid ID)
         {
-            return dal.Delete(ID, City);
+            return dal.Delete(ID);
+        }
+
+        /// <summary>
+        /// 删除一条数据
+        /// </summary>
+        public bool DeleteList(string IDlist)
+        {
+            return dal.DeleteList(IDlist);
         }
 
         /// <summary>
         /// 得到一个对象实体
         /// </summary>
-        public Fitness_Club_Model GetModel(Guid ID, string City)
+        public Fitness_Club_Model GetModel(Guid ID)
         {
-            return dal.GetModel(ID, City);
+            return dal.GetModel(ID);
         }
 
         /// <summary>

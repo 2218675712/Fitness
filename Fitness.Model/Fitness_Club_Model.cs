@@ -32,7 +32,7 @@ namespace Fitness.Model
         }
 
         /// <summary>
-        /// 
+        /// 城市
         /// </summary>
         public string City
         {

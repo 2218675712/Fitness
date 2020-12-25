@@ -27,7 +27,7 @@
 <body>
 <form id="form1" runat="server">
     <div>
-        <div class="contentbox infbg success">
+        <%--<div class="contentbox infbg success">
             <img class="inflogo" src="img/logo.png"/>
             <p>恭喜你，预约成功</p>
             <p>- 时间 -</p>
@@ -39,8 +39,31 @@
             <p>- 联系方式 -</p>
             <p>021-88888888 吴先生</p>
             <button class="btn success_top">确认</button>
+        </div>--%>
+        <div class="contentbox infbg success">
+            <img class="inflogo" src="img/logo.png"/>
+            <p>恭喜你，预约成功</p>
+            <p>- 时间 -</p>
+            <p>
+                <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+            </p>
+            <p>- 活动名称 -</p>
+            <p>
+                <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+            </p>
+            <p>- 活动地址 -</p>
+            <p>
+                <asp:Label ID="Label3" runat="server" Text=""></asp:Label>
+            </p>
+            <p>- 联系方式 -</p>
+            <p>
+                <asp:Label ID="Label4" runat="server" Text=""></asp:Label>
+            </p>
+            <%-- <button class="btn success_top">确认</button> --%>
+            <asp:Button ID="Button1" class="btn success_top confirmBtn" runat="server" Text="确认"/>
         </div>
     </div>
+
 </form>
 </body>
 </html>

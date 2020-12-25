@@ -21,18 +21,16 @@ namespace Fitness.DAL
         /// <summary>
         /// 是否存在该记录
         /// </summary>
-        public bool Exists(Guid ID, string City)
+        public bool Exists(Guid ID)
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select count(1) from Fitness_Club");
-            strSql.Append(" where ID=@ID and City=@City ");
+            strSql.Append(" where ID=@ID ");
             SqlParameter[] parameters =
             {
-                new SqlParameter("@ID", SqlDbType.UniqueIdentifier, 16),
-                new SqlParameter("@City", SqlDbType.NVarChar, 10)
+                new SqlParameter("@ID", SqlDbType.UniqueIdentifier, 16)
             };
             parameters[0].Value = ID;
-            parameters[1].Value = City;
 
             return DbHelperSQL.Exists(strSql.ToString(), parameters);
         }
@@ -84,29 +82,30 @@ namespace Fitness.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update Fitness_Club set ");
+            strSql.Append("City=@City,");
             strSql.Append("Name=@Name,");
             strSql.Append("Max_User=@Max_User,");
             strSql.Append("Address=@Address,");
             strSql.Append("Phone=@Phone,");
             strSql.Append("Contact=@Contact");
-            strSql.Append(" where ID=@ID and City=@City ");
+            strSql.Append(" where ID=@ID ");
             SqlParameter[] parameters =
             {
+                new SqlParameter("@City", SqlDbType.NVarChar, 10),
                 new SqlParameter("@Name", SqlDbType.NVarChar, 20),
                 new SqlParameter("@Max_User", SqlDbType.Int, 4),
                 new SqlParameter("@Address", SqlDbType.NVarChar, 50),
                 new SqlParameter("@Phone", SqlDbType.NVarChar, 20),
                 new SqlParameter("@Contact", SqlDbType.NVarChar, 10),
-                new SqlParameter("@ID", SqlDbType.UniqueIdentifier, 16),
-                new SqlParameter("@City", SqlDbType.NVarChar, 10)
+                new SqlParameter("@ID", SqlDbType.UniqueIdentifier, 16)
             };
-            parameters[0].Value = model.Name;
-            parameters[1].Value = model.Max_User;
-            parameters[2].Value = model.Address;
-            parameters[3].Value = model.Phone;
-            parameters[4].Value = model.Contact;
-            parameters[5].Value = model.ID;
-            parameters[6].Value = model.City;
+            parameters[0].Value = model.City;
+            parameters[1].Value = model.Name;
+            parameters[2].Value = model.Max_User;
+            parameters[3].Value = model.Address;
+            parameters[4].Value = model.Phone;
+            parameters[5].Value = model.Contact;
+            parameters[6].Value = model.ID;
 
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
@@ -122,20 +121,37 @@ namespace Fitness.DAL
         /// <summary>
         /// 删除一条数据
         /// </summary>
-        public bool Delete(Guid ID, string City)
+        public bool Delete(Guid ID)
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("delete from Fitness_Club ");
-            strSql.Append(" where ID=@ID and City=@City ");
+            strSql.Append(" where ID=@ID ");
             SqlParameter[] parameters =
             {
-                new SqlParameter("@ID", SqlDbType.UniqueIdentifier, 16),
-                new SqlParameter("@City", SqlDbType.NVarChar, 10)
+                new SqlParameter("@ID", SqlDbType.UniqueIdentifier, 16)
             };
             parameters[0].Value = ID;
-            parameters[1].Value = City;
 
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 批量删除数据
+        /// </summary>
+        public bool DeleteList(string IDlist)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("delete from Fitness_Club ");
+            strSql.Append(" where ID in (" + IDlist + ")  ");
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString());
             if (rows > 0)
             {
                 return true;
@@ -150,18 +166,16 @@ namespace Fitness.DAL
         /// <summary>
         /// 得到一个对象实体
         /// </summary>
-        public Fitness_Club_Model GetModel(Guid ID, string City)
+        public Fitness_Club_Model GetModel(Guid ID)
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select  top 1 ID,City,Name,Max_User,Address,Phone,Contact from Fitness_Club ");
-            strSql.Append(" where ID=@ID and City=@City ");
+            strSql.Append(" where ID=@ID ");
             SqlParameter[] parameters =
             {
-                new SqlParameter("@ID", SqlDbType.UniqueIdentifier, 16),
-                new SqlParameter("@City", SqlDbType.NVarChar, 10)
+                new SqlParameter("@ID", SqlDbType.UniqueIdentifier, 16)
             };
             parameters[0].Value = ID;
-            parameters[1].Value = City;
 
             Fitness_Club_Model model = new Fitness_Club_Model();
             DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
@@ -299,7 +313,7 @@ namespace Fitness.DAL
             }
             else
             {
-                strSql.Append("order by T.City desc");
+                strSql.Append("order by T.ID desc");
             }
 
             strSql.Append(")AS Row, T.*  from Fitness_Club T ");
@@ -329,7 +343,7 @@ namespace Fitness.DAL
                     new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
                     };
             parameters[0].Value = "Fitness_Club";
-            parameters[1].Value = "City";
+            parameters[1].Value = "ID";
             parameters[2].Value = PageSize;
             parameters[3].Value = PageIndex;
             parameters[4].Value = 0;
