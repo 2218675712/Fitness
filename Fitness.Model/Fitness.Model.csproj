@@ -44,6 +44,7 @@
         <Compile Include="Reservation_Activity_Model.cs" />
         <Compile Include="Reservation_User_Model.cs" />
         <Compile Include="uploadModel.cs" />
+        <Compile Include="V_Insert_Reservation_User_Activity_Model.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

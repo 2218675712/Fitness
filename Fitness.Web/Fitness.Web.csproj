@@ -63,6 +63,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BackstageManagement.aspx" />
+    <Content Include="css\bootstrap.css" />
     <Content Include="css\style.css" />
     <Content Include="img\bg.png" />
     <Content Include="img\bg2.png" />
@@ -72,10 +74,18 @@
     <Content Include="img\slogn.png" />
     <Content Include="index.aspx" />
     <Content Include="information.aspx" />
+    <Content Include="js\bootstrap.js" />
     <Content Include="success.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackstageManagement.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>BackstageManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BackstageManagement.aspx.designer.cs">
+      <DependentUpon>BackstageManagement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
