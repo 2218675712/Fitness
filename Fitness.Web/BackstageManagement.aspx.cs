@@ -80,22 +80,29 @@ namespace Fitness.Web
             string cityName = DropDownList1.SelectedValue;
             // 俱乐部名称
             string clubID = DropDownList2.SelectedValue;
+            string fuzzySearch = TextBox1.Text;
             string sql = "";
-            if (!string.IsNullOrEmpty(cityName))
+
+            if (!string.IsNullOrEmpty(fuzzySearch))
             {
-                cityName = "Fitness_Club_City='" + cityName + "'";
-                sql = cityName;
+                sql += "Reservation_User_Phone like '%" + fuzzySearch + "%' or Reservation_User_Name like '%" +
+                       fuzzySearch + "%' and";
+            }
+
+            if (!string.IsNullOrEmpty(cityName) && cityName != "0")
+            {
+                cityName = " Fitness_Club_City='" + cityName + "' and";
+                sql += cityName;
             }
 
             if (!string.IsNullOrEmpty(clubID) && clubID != "0")
             {
-                clubID = "Fitness_Club_ID='" + clubID + "'";
-                sql = clubID;
+                clubID = " Fitness_Club_ID='" + clubID + "' and";
+                sql += clubID;
             }
-
-            if (!string.IsNullOrEmpty(cityName) && !string.IsNullOrEmpty(clubID) && clubID != "0")
+            if (sql.Length > 0)
             {
-                sql = cityName + " and " + clubID;
+                sql = sql.Remove(sql.Length - 3, 3);
             }
 
             Get_V_Insert_Reservation_User_Activity_And_Bind_Table(sql);
